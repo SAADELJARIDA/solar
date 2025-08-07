@@ -1,0 +1,90 @@
+# SolarPredict - Frontend
+
+## Structure du projet
+
+```
+frontend/
+├── public/                # Fichiers statiques
+│
+├── src/
+│   ├── api/              # Services d'API par entité
+│   │   ├── apiConfig.js  # Configuration centrale d'axios
+│   │   ├── auth.js       # API d'authentification
+│   │   ├── module.js     # API de modules photovoltaïques
+│   │   └── prediction.js # API de prédictions
+│   │
+│   ├── assets/           # Images, icônes, fichiers statiques
+│   │
+│   ├── components/       # Composants réutilisables
+│   │   ├── common/       # Composants génériques (boutons, inputs, etc.)
+│   │   ├── layout/       # Composants de mise en page (header, footer, etc.)
+│   │   └── modules/      # Composants spécifiques aux modules métier
+│   │
+│   ├── context/          # Contextes React (authentification, etc.)
+│   │   └── AuthContext.js
+│   │
+│   ├── hooks/            # Hooks personnalisés
+│   │   └── useAuth.js    # Hook d'authentification
+│   │
+│   ├── pages/            # Pages principales de l'application
+│   │   ├── Dashboard.js  # Tableau de bord
+│   │   ├── Login.js      # Page de connexion
+│   │   ├── Predict.js    # Page de prédiction
+│   │   └── Register.js   # Page d'inscription
+│   │
+│   ├── styles/           # Styles globaux
+│   │
+│   ├── utils/            # Fonctions utilitaires
+│   │
+│   ├── App.js            # Composant racine et routes
+│   └── index.js          # Point d'entrée
+│
+├── .env                  # Variables d'environnement
+├── package.json          # Dépendances du projet
+└── tailwind.config.js    # Configuration Tailwind CSS
+```
+
+## Installation
+
+1. Installer les dépendances :
+```bash
+npm install
+```
+
+2. Créer un fichier `.env` :
+```bash
+touch .env
+```
+
+3. Configurer les variables d'environnement dans le fichier `.env` :
+```
+REACT_APP_API_URL=http://localhost:5000
+```
+
+4. Démarrer l'application :
+```bash
+npm start
+```
+
+L'application sera disponible sur [http://localhost:3000](http://localhost:3000).
+
+## Architecture
+
+Le frontend est construit avec React et utilise :
+- **React Router** pour la navigation
+- **Tailwind CSS** pour le styling
+- **Axios** pour les requêtes API
+- **Context API** pour la gestion d'état globale
+
+L'architecture suit une structure orientée composants avec une séparation claire entre :
+- **Pages** : Composants de niveau supérieur représentant des routes
+- **Components** : Éléments d'interface réutilisables
+- **Context** : État global partagé entre composants
+- **API** : Services pour interagir avec le backend
+- **Hooks** : Logique réutilisable
+
+## Fonctionnalités
+
+- Authentification (inscription, connexion)
+- Gestion des modules photovoltaïques (création, modification, suppression)
+- Prédictions solaires basées sur les modules sélectionnés
